@@ -1,0 +1,12 @@
+{
+    "name": "user/library",
+    "authors": [
+        {
+            "name": "LauraKo",
+            "email": "kovarskyte@yahoo.com"
+        }
+    ],
+    "require": {
+        "laravel/ui": "^3.2"
+    }
+}
