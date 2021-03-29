@@ -8,7 +8,7 @@
                <div class="card-header">Create author</div>
 
                <div class="card-body">
-                 <form method="POST" action="{{route('author.store')}}">
+                <form method="POST" action="{{route('author.store')}}">
                 Name: <input type="text" name="author_name">
                 Surname: <input type="text" name="author_surname">
                 @csrf

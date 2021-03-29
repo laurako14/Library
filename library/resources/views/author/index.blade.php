@@ -8,14 +8,20 @@
                <div class="card-header">Authors</div>
 
                <div class="card-body">
-                 @foreach ($authors as $author)
-                <a href="{{route('author.edit',[$author])}}">{{$author->name}} {{$author->surname}}</a>
+               <ul class="list-group">
+                @foreach ($authors as $author)
+                <li class="list-group-item list-line">
+                <div>{{$author->name}} {{$author->surname}}</div> 
+                <div class="list-line__buttons">
+                <a href="{{route('author.edit',[$author])}}" class="btn btn-info">Edit</a>
                 <form method="POST" action="{{route('author.destroy', [$author])}}">
                 @csrf
-                <button type="submit">DELETE</button>
+                <button type="submit" class="btn btn-warning">DELETE</button>
                 </form>
-                <br>
+                </div>
+                </li>
                 @endforeach
+                </ul>
                </div>
            </div>
        </div>
