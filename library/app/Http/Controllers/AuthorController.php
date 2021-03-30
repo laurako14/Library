@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
+use Validator;
 
 class AuthorController extends Controller
 {
@@ -41,7 +42,23 @@ class AuthorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+   {
+      
+       $validator = Validator::make($request->all(),
+       [
+           'author_name' => ['required', 'min:3', 'max:64'],
+           'author_surname' => ['required', 'min:3', 'max:64'],
+       ],
+        [
+            'author_surname.required' => 'Please enter surname',
+            'author_surname.min' => 'Surname too short'
+        ]
+       );
+       if ($validator->fails()) {
+           $request->flash();
+           return redirect()->back()->withErrors($validator);
+       }
+ 
         $author = new Author;
         $author->name = $request->author_name;
         $author->surname = $request->author_surname;
@@ -81,6 +98,22 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
+
+        $validator = Validator::make($request->all(),
+        [
+            'author_name' => ['required', 'min:3', 'max:64'],
+            'author_surname' => ['required', 'min:3', 'max:64'],
+        ],
+         [
+             'author_surname.required' => 'Please enter surname',
+             'author_surname.min' => 'Surname too short'
+         ]
+        );
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $author->name = $request->author_name;
         $author->surname = $request->author_surname;
         $author->save();
