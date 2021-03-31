@@ -5,7 +5,13 @@
    <div class="row justify-content-center">
        <div class="col-md-8">
            <div class="card">
-               <div class="card-header">Authors</div>
+               <div class="card-header">
+               <h2>Authors</h2>
+               
+               <a href="{{route('author.index', ['sort' => 'surname'])}}" class="btn btn-primary">Sort by surname</a>
+               <a href="{{route('author.index', ['sort' => 'name'])}}" class="btn btn-primary">Sort by name</a>
+               <a href="{{route('author.index')}}" class="btn btn-primary">Default</a>
+               </div>
 
                <div class="card-body">
                <ul class="list-group">

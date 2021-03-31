@@ -18,9 +18,21 @@ class AuthorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $authors = Author::all();
+        if ($request->sort == 'name') {
+            $authors = Author::orderBy('name')->get();
+        }
+        elseif ($request->sort == 'surname') {
+            $authors = Author::orderBy('surname')->get();
+        }
+        else {
+            $authors = Author::all();
+        }
+        // $authors = Author::all();
+
+        // $authors = Author::orderBy('surname', 'desc')->get();
+
         return view('author.index', ['authors' => $authors]);
 
     }

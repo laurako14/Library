@@ -10025,3 +10025,25 @@ h3 {
   font-size: 80%;
   font-style: italic;
 }
+
+.make-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.make-inline.column {
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 0 12px;
+}
+.make-inline select, .make-inline label, .make-inline input {
+  margin: 0 12px 0 5px;
+}
+.make-inline.form-group {
+  margin-bottom: 0;
+}
+
+button.nice {
+  margin-left: 5px;
+}

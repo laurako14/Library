@@ -21,3 +21,25 @@
         }
     }
 }
+
+.make-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &.column {
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        margin: 0 12px;
+    }
+    select, label, input {
+        margin: 0 12px 0 5px;
+    }
+    &.form-group {
+        margin-bottom: 0;
+    }   
+}
+
+button.nice {
+    margin-left: 5px;
+}
