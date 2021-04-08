@@ -57,7 +57,7 @@
                             @endif
                         @else
                         <li class="nav-item dropdown">
-<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                    Authors
                                </a>
                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -66,6 +66,19 @@
                                    </a>
                                    <a class="dropdown-item" href="{{ route('author.create') }}">
                                        New Author
+                                   </a>
+                               </div>
+                           </li>
+                           <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   Publishers
+                               </a>
+                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="{{ route('publisher.index') }}">
+                                       Publishers List
+                                   </a>
+                                   <a class="dropdown-item" href="{{ route('publisher.create') }}">
+                                       New Publisher
                                    </a>
                                </div>
                            </li>
@@ -79,6 +92,19 @@
                                    </a>
                                        <a class="dropdown-item" href="{{ route('book.create') }}">
                                        New Book
+                                   </a>
+                               </div>
+                           </li>
+                           <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   Genres
+                               </a>
+                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="{{ route('genre.index') }}">
+                                       Genre List
+                                   </a>
+                                   <a class="dropdown-item" href="{{ route('genre.create') }}">
+                                       New Genre
                                    </a>
                                </div>
                            </li>

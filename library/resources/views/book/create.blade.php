@@ -29,7 +29,6 @@
                 <textarea name="book_about" id="summernote"></textarea>
                 <small class="form-text text-muted">Please enter description</small>
                 </div>
-
                 <div class="form-group">
                 <label>Author:</label>
                 <select name="author_id">
@@ -38,7 +37,22 @@
                     @endforeach
                 </select>
                 </div>
-                
+                <div class="form-group">
+                <label>Publisher:</label>
+                <select name="publisher_id">
+                    @foreach ($publishers as $publisher)
+                        <option value="{{$publisher->id}}">{{$publisher->name}}</option>
+                    @endforeach
+                </select>
+                </div>
+                <div class="form-group">
+                <label>Genre:</label>
+                <select name="genre_id">
+                    @foreach ($genres as $genre)
+                        <option value="{{$genre->id}}">{{$genre->name}}</option>
+                    @endforeach
+                </select>
+                </div>
                 @csrf
                 <button type="submit" class="btn btn-primary">ADD</button>
                 </form>

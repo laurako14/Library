@@ -1,24 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mb-3">
-<div class="mx-auto pull-right">
-            <div class="">
-                <form action="{{ route('book.search') }}" method="POST" role="search">
-
-                    <div class="input-group">
-                    <input type="text" class="form-control mr-2" name="term" placeholder="Search books" id="term">
-                        <span class="input-group-btn">
-                            <button class="btn btn-info" type="submit" title="Search books">
-                                Search
-                            </button>
-                        </span>
-                    </div>
-                    @csrf
-                </form>
-            </div>
-        </div>
-</div>
 <div class="container">
    <div class="row justify-content-center">
        <div class="col-md-8">
@@ -28,14 +10,14 @@
                 <div class="make-inline">
                 <form action="{{route('book.index')}}" method="get" class="make-inline">
                 <div class="form-group make-inline">
-                <select name="author_id" class="form-control">
+                {{-- <select name="author_id" class="form-control">
                 <option value="0" disabled @if($filterBy == 0) selected @endif>Select author</option>
                     @foreach ($authors as $author)
                         <option value="{{$author->id}}" @if($filterBy == $author->id) selected @endif>{{$author->name}} {{$author->surname}}</option>
                     @endforeach
-                </select>
+                </select> --}}
                 </div>
-                <label class="form-check-label">Sort by title</label>
+                {{-- <label class="form-check-label">Sort by title</label>
                 <div class="form-group make-inline column">
                     <input type="radio" class="form-check-input" name="sort" value="asc" id="sortASC" @if($sortBy == 'asc') checked @endif>
                 </div>
@@ -48,9 +30,9 @@
                 <div>
                     <label class="form-check-label" id="sortDESC">DESC</label>
                 </div>
-               <button type="submit" class="btn btn-primary nice">Filter</button>   
+               <button type="submit" class="btn btn-primary nice">Filter</button>    --}}
                </form>
-               <a href="{{route('book.index')}}" class="btn btn-primary">Clear</a>
+               <a href="{{route('book.index')}}" class="btn btn-primary">Back</a>
                </div>
                </div>
 
@@ -76,15 +58,9 @@
                 </li>
                 @endforeach
                 </ul>
-                @if (!$sortBy)
-                {{$books->links()}}
-                @endif
                </div>
            </div>
        </div>
    </div>
 </div>
 @endsection
-
-
-

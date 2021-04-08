@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\PublisherController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +43,25 @@ Route::group(['prefix' => 'books'], function(){
     Route::post('update/{book}', [BookController::class, 'update'])->name('book.update');
     Route::post('delete/{book}', [BookController::class, 'destroy'])->name('book.destroy');
     Route::get('show/{book}', [BookController::class, 'show'])->name('book.show');
+    Route::post('search', [BookController::class, 'search'])->name('book.search');
  });
+
+ Route::group(['prefix' => 'publishers'], function(){
+    Route::get('', [PublisherController::class, 'index'])->name('publisher.index');
+    Route::get('create', [PublisherController::class, 'create'])->name('publisher.create');
+    Route::post('store', [PublisherController::class, 'store'])->name('publisher.store');
+    Route::get('edit/{publisher}', [PublisherController::class, 'edit'])->name('publisher.edit');
+    Route::post('update/{publisher}', [PublisherController::class, 'update'])->name('publisher.update');
+    Route::post('delete/{publisher}', [PublisherController::class, 'destroy'])->name('publisher.destroy');
+    Route::get('show/{publisher}', [PublisherController::class, 'show'])->name('publisher.show');
+ });
+
+ Route::group(['prefix' => 'genres'], function(){
+   Route::get('', [GenreController::class, 'index'])->name('genre.index');
+   Route::get('create', [GenreController::class, 'create'])->name('genre.create');
+   Route::post('store', [GenreController::class, 'store'])->name('genre.store');
+   Route::get('edit/{genre}', [GenreController::class, 'edit'])->name('genre.edit');
+   Route::post('update/{genre}', [GenreController::class, 'update'])->name('genre.update');
+   Route::post('delete/{genre}', [GenreController::class, 'destroy'])->name('genre.destroy');
+   Route::get('show/{genre}', [GenreController::class, 'show'])->name('genre.show');
+});
